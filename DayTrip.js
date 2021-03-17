@@ -70,32 +70,39 @@ while (completed == false){
         completed = true;
     }
     if(answer == 'no'){
-        let userSwitch = prompt('What would you like to change? 0 - destination, 1 - restaurant, 2 - transportation, 3 - entertainment:')
-        switch (userSwitch) {
-            case "0":
-                console.log('We are going to switch destination!');
-                codePassArray = rerollChoice('0', codePassArray[0]);
-                consoleSentence = sentenceOutput(codePassArray);
-                console.log(consoleSentence);
-                break;
-            case "1":
-                console.log('We are going to switch restaurant!');
-                codePassArray = rerollChoice('1', codePassArray[1]);
-                consoleSentence = sentenceOutput(codePassArray);
-                console.log(consoleSentence);
-                break;
-            case "2":
-                console.log('We are going to switch transportation!');
-                codePassArray = rerollChoice('2', codePassArray[2]);
-                consoleSentence = sentenceOutput(codePassArray);
-                console.log(consoleSentence);
-                break;
-            case "3":
-                console.log('We are going to switch entertainment!');
-                codePassArray = rerollChoice('3', codePassArray[3]);
-                consoleSentence = sentenceOutput(codePassArray);
-                console.log(consoleSentence);
-                break;
+        let reroll = false;
+        while (reroll == false){
+            let userSwitch = prompt('What would you like to change? 0 - destination, 1 - restaurant, 2 - transportation, 3 - entertainment:')
+            switch (userSwitch) {
+                case "0":
+                    console.log('We are going to switch destination!');
+                    codePassArray = rerollChoice('0', codePassArray[0]);
+                    consoleSentence = sentenceOutput(codePassArray);
+                    console.log(consoleSentence);
+                    reroll = true;
+                    break;
+                case "1":
+                    console.log('We are going to switch restaurant!');
+                    codePassArray = rerollChoice('1', codePassArray[1]);
+                    consoleSentence = sentenceOutput(codePassArray);
+                    console.log(consoleSentence);
+                    reroll = true;
+                    break;
+                case "2":
+                    console.log('We are going to switch transportation!');
+                    codePassArray = rerollChoice('2', codePassArray[2]);
+                    consoleSentence = sentenceOutput(codePassArray);
+                    console.log(consoleSentence);
+                    reroll = true;
+                    break;
+                case "3":
+                    console.log('We are going to switch entertainment!');
+                    codePassArray = rerollChoice('3', codePassArray[3]);
+                    consoleSentence = sentenceOutput(codePassArray);
+                    console.log(consoleSentence);
+                    reroll = true;
+                    break;
+            }
         }
     }
 }

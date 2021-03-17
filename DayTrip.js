@@ -48,26 +48,30 @@ firstPass.push(randomTransportation);
 firstPass.push(randomEntertainment);
 console.log(firstPass);
 
-function sentenceOutput(firstPass){
-let sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-console.log(sentence);
+function sentenceOutput(arrayOfChoices){
+    let sentence = "Congratulations! You're going to " + arrayOfChoices[0] + "! You get to eat at " + arrayOfChoices[1] + " . You'll be riding around town in a " + arrayOfChoices [2] + ". You'll finish the evening by going to the " + arrayOfChoices [3] + '!';
+    //console.log(sentence);
+    return sentence;
 }
 
+let consoleSentence = sentenceOutput(firstPass);
+console.log(consoleSentence);
 
 //Randomly re-select a new option
 let completed = false;
 while (completed == false){
     let answer = prompt('Do you like your day trip itinerary? yes or no:');
     if (answer == 'yes'){
+        //Confirm that my day trip is "Complete"
         console.log('Your day trip itinerary is complete!');
-        sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-        let finalTrip = sentence;
-        console.log(finalTrip);
+        //Display completed trip in the console.
+        consoleSentence = sentenceOutput(firstPass);
+        console.log(consoleSentence);
         completed = true;
     }
     if(answer == 'no'){
-        let user = prompt('What would you like to change? 0 - destination, 1 - restaurant, 2 - transportation, 3 - entertainment:')
-        switch (user) {
+        let userSwitch = prompt('What would you like to change? 0 - destination, 1 - restaurant, 2 - transportation, 3 - entertainment:')
+        switch (userSwitch) {
             case "0":
                 console.log('We are going to switch destination!');
                 randomDestinationTwo = chooseDestination(destinations);
@@ -76,8 +80,8 @@ while (completed == false){
                 }
                 firstPass.splice(0, 1, randomDestinationTwo);
                 console.log(firstPass);
-                sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-                console.log(sentence);
+                consoleSentence = sentenceOutput(firstPass);
+                console.log(consoleSentence);
                 break;
             case "1":
                 console.log('We are going to switch restaurant!');
@@ -87,8 +91,8 @@ while (completed == false){
                 }
                 firstPass.splice(1, 1, randomRestaurantTwo);
                 console.log(firstPass);
-                sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-                console.log(sentence);
+                consoleSentence = sentenceOutput(firstPass);
+                console.log(consoleSentence);
                 break;
             case "2":
                 console.log('We are going to switch transportation!');
@@ -98,8 +102,8 @@ while (completed == false){
                 }
                 firstPass.splice(2, 1, randomTransportation);
                 console.log(firstPass);
-                sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-                console.log(sentence);
+                consoleSentence = sentenceOutput(firstPass);
+                console.log(consoleSentence);
                 break;
             case "3":
                 console.log('We are going to switch entertainment!');
@@ -109,12 +113,9 @@ while (completed == false){
                 }
                 firstPass.splice(3, 1, randomEntertainment);
                 console.log(firstPass);
-                sentence = "Congratulations! You're going to " + firstPass[0] + "! You get to eat at " + firstPass[1] + " . You'll be riding around town in a " + firstPass [2] + ". You'll finish the evening by going to the " + firstPass [3] + '!';
-                console.log(sentence);
+                consoleSentence = sentenceOutput(firstPass);
+                console.log(consoleSentence);
                 break;
         }
     }
 }
-//Confirm that my day trip is "Complete"
-
-//Display completed trip in the console.

@@ -2,42 +2,39 @@
 
 //Randomly select a destination
 let destinations = ['Chicago', 'Seattle', 'Las Vegas'];
-randomDestination = chooseDestination(destinations);
-
-function chooseDestination(listOfDestinations){
-    randomDestination = listOfDestinations[Math.floor(Math.random()*listOfDestinations.length)];
-    console.log(randomDestination)
-    return randomDestination;
-}
+randomDestination = chooseRandom('0');
 
 //Randomly select a restaurant
 let restaurants = ['Cheesecake Factory', 'Five Guys', 'Texas Roadhouse'];
-randomRestaurant = chooseRestaurant(restaurants);
-
-function chooseRestaurant(listOfRestaurants){
-    randomRestaurant = listOfRestaurants[Math.floor(Math.random()*listOfRestaurants.length)];
-    console.log(randomRestaurant);
-    return randomRestaurant;
-}
+randomRestaurant = chooseRandom('1');
 
 //Randomly select a mode of transportation
 let transportation = ['Audi RS7', 'longboard', 'tank'];
-randomTransportation = chooseTransportation(transportation);
-
-function chooseTransportation(listOfTransportations){
-    randomTransportation = listOfTransportations[Math.floor(Math.random()*listOfTransportations.length)];
-    console.log(randomTransportation);
-    return randomTransportation;
-}
+randomTransportation = chooseRandom('2');
 
 //Randomly select a form of entertainment
 let entertainment = ['art gallery', 'movies', 'museum'];
-randomEntertainment = chooseEntertainment(entertainment);
+randomEntertainment = chooseRandom('3');
 
-function chooseEntertainment(ListOfEntertainment){
-    randomEntertainment = ListOfEntertainment[Math.floor(Math.random()*ListOfEntertainment.length)];
-    console.log(randomEntertainment);
-    return randomEntertainment;
+function chooseRandom(dayTripChoice){
+    switch (dayTripChoice){
+        case '0':
+            randomDestination = destinations[Math.floor(Math.random()*destinations.length)];
+            console.log(randomDestination)
+            return randomDestination;
+        case '1':
+            randomRestaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
+            console.log(randomRestaurant);
+            return randomRestaurant;
+        case '2':
+            randomTransportation = transportation[Math.floor(Math.random()*transportation.length)];
+            console.log(randomTransportation);
+            return randomTransportation;
+        case '3':
+            randomEntertainment = entertainment[Math.floor(Math.random()*entertainment.length)];
+            console.log(randomEntertainment);
+            return randomEntertainment;
+    }
 }
 
 //Completed trip (first pass);
@@ -110,35 +107,35 @@ while (completed == false){
 function rerollChoice(userChoiceToReroll, oldValue){
     switch (userChoiceToReroll){
         case '0':
-            randomDestinationTwo = chooseDestination(destinations);
+            randomDestinationTwo = chooseRandom('0');
             while (oldValue == randomDestinationTwo){
-                randomDestiationTwo = chooseDestination(destinations);
+                randomDestinationTwo = chooseRandom('0');
             }
             codePassArray.splice(0, 1, randomDestinationTwo);
             console.log(codePassArray);
             return codePassArray;
         case '1':
-            randomRestaurantTwo = chooseRestaurant(restaurants);
+            randomRestaurantTwo = chooseRandom('1');
             while (oldValue == randomRestaurantTwo){
-                randomRestaurantTwo = chooseDestination(restaurants);
+                randomRestaurantTwo = chooseRandom('1');
             }
             codePassArray.splice(1, 1, randomRestaurantTwo);
             console.log(codePassArray);
             return codePassArray;
         case '2':
-            randomTransportationTwo = chooseTransportation(transportation);
+            randomTransportationTwo = chooseRandom('2');
             while (oldValue == randomTransportationTwo){
-                randomTransportationTwo = chooseDestination(transportation);
+                randomTransportationTwo = chooseRandom('2');
             }
-            codePassArray.splice(2, 1, randomTransportation);
+            codePassArray.splice(2, 1, randomTransportationTwo);
             console.log(codePassArray);
             return codePassArray;
         case '3':
-            randomEntertainmentTwo = chooseEntertainment(entertainment);
+            randomEntertainmentTwo = chooseRandom('3');
             while (oldValue == randomEntertainmentTwo){
-                randomEntertainmentTwo = chooseDestination(entertainment);
+                randomEntertainmentTwo = chooseRandom('3');
             }
-            codePassArray.splice(3, 1, randomEntertainment);
+            codePassArray.splice(3, 1, randomEntertainmentTwo);
             console.log(codePassArray);
             return codePassArray;
     }

@@ -41,12 +41,12 @@ function chooseEntertainment(ListOfEntertainment){
 }
 
 //Completed trip (first pass);
-let firstPass = [];
-firstPass.push(randomDestination);
-firstPass.push(randomRestaurant);
-firstPass.push(randomTransportation);
-firstPass.push(randomEntertainment);
-console.log(firstPass);
+let codePassArray = [];
+codePassArray.push(randomDestination);
+codePassArray.push(randomRestaurant);
+codePassArray.push(randomTransportation);
+codePassArray.push(randomEntertainment);
+console.log(codePassArray);
 
 function sentenceOutput(arrayOfChoices){
     let sentence = "Congratulations! You're going to " + arrayOfChoices[0] + "! You get to eat at " + arrayOfChoices[1] + " . You'll be riding around town in a " + arrayOfChoices [2] + ". You'll finish the evening by going to the " + arrayOfChoices [3] + '!';
@@ -54,7 +54,7 @@ function sentenceOutput(arrayOfChoices){
     return sentence;
 }
 
-let consoleSentence = sentenceOutput(firstPass);
+let consoleSentence = sentenceOutput(codePassArray);
 console.log(consoleSentence);
 
 //Randomly re-select a new option
@@ -65,7 +65,7 @@ while (completed == false){
         //Confirm that my day trip is "Complete"
         console.log('Your day trip itinerary is complete!');
         //Display completed trip in the console.
-        consoleSentence = sentenceOutput(firstPass);
+        consoleSentence = sentenceOutput(codePassArray);
         console.log(consoleSentence);
         completed = true;
     }
@@ -74,48 +74,65 @@ while (completed == false){
         switch (userSwitch) {
             case "0":
                 console.log('We are going to switch destination!');
-                randomDestinationTwo = chooseDestination(destinations);
-                while (firstPass[0] == randomDestinationTwo){
-                    randomDestiationTwo = chooseDestination(destinations);
-                }
-                firstPass.splice(0, 1, randomDestinationTwo);
-                console.log(firstPass);
-                consoleSentence = sentenceOutput(firstPass);
+                codePassArray = rerollChoice('0', codePassArray[0]);
+                consoleSentence = sentenceOutput(codePassArray);
                 console.log(consoleSentence);
                 break;
             case "1":
                 console.log('We are going to switch restaurant!');
-                randomRestaurantTwo = chooseRestaurant(restaurants);
-                while (firstPass[1] == randomRestaurantTwo){
-                    randomRestaurantTwo = chooseDestination(restaurants);
-                }
-                firstPass.splice(1, 1, randomRestaurantTwo);
-                console.log(firstPass);
-                consoleSentence = sentenceOutput(firstPass);
+                codePassArray = rerollChoice('1', codePassArray[1]);
+                consoleSentence = sentenceOutput(codePassArray);
                 console.log(consoleSentence);
                 break;
             case "2":
                 console.log('We are going to switch transportation!');
-                randomTransportationTwo = chooseTransportation(transportation);
-                while (firstPass[2] == randomTransportationTwo){
-                    randomTransportationTwo = chooseDestination(transportationTwo);
-                }
-                firstPass.splice(2, 1, randomTransportation);
-                console.log(firstPass);
-                consoleSentence = sentenceOutput(firstPass);
+                codePassArray = rerollChoice('2', codePassArray[2]);
+                consoleSentence = sentenceOutput(codePassArray);
                 console.log(consoleSentence);
                 break;
             case "3":
                 console.log('We are going to switch entertainment!');
-                randomEntertainmentTwo = chooseEntertainment(entertainment);
-                while (firstPass[3] == randomEntertainmentTwo){
-                    randomEntertainmentTwo = chooseDestination(entertainment);
-                }
-                firstPass.splice(3, 1, randomEntertainment);
-                console.log(firstPass);
-                consoleSentence = sentenceOutput(firstPass);
+                codePassArray = rerollChoice('3', codePassArray[3]);
+                consoleSentence = sentenceOutput(codePassArray);
                 console.log(consoleSentence);
                 break;
         }
+    }
+}
+
+function rerollChoice(userChoiceToReroll, oldValue){
+    switch (userChoiceToReroll){
+        case '0':
+            randomDestinationTwo = chooseDestination(destinations);
+            while (oldValue == randomDestinationTwo){
+                randomDestiationTwo = chooseDestination(destinations);
+            }
+            codePassArray.splice(0, 1, randomDestinationTwo);
+            console.log(codePassArray);
+            return codePassArray;
+        case '1':
+            randomRestaurantTwo = chooseRestaurant(restaurants);
+            while (oldValue == randomRestaurantTwo){
+                randomRestaurantTwo = chooseDestination(restaurants);
+            }
+            codePassArray.splice(1, 1, randomRestaurantTwo);
+            console.log(codePassArray);
+            return codePassArray;
+        case '2':
+            randomTransportationTwo = chooseTransportation(transportation);
+            while (oldValue == randomTransportationTwo){
+                randomTransportationTwo = chooseDestination(transportation);
+            }
+            codePassArray.splice(2, 1, randomTransportation);
+            console.log(codePassArray);
+            return codePassArray;
+        case '3':
+            randomEntertainmentTwo = chooseEntertainment(entertainment);
+            while (oldValue == randomEntertainmentTwo){
+                randomEntertainmentTwo = chooseDestination(entertainment);
+            }
+            codePassArray.splice(3, 1, randomEntertainment);
+            console.log(codePassArray);
+            return codePassArray;
     }
 }

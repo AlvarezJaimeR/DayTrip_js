@@ -1,37 +1,38 @@
+"use strict";
 //Day Trip Generator
 
 //Randomly select a destination
 let destinations = ['Chicago', 'Seattle', 'Las Vegas'];
-randomDestination = chooseRandom('0');
+let randomDestination = chooseRandom('0');
 
 //Randomly select a restaurant
 let restaurants = ['Cheesecake Factory', 'Five Guys', 'Texas Roadhouse'];
-randomRestaurant = chooseRandom('1');
+let randomRestaurant = chooseRandom('1');
 
 //Randomly select a mode of transportation
 let transportation = ['Audi RS7', 'longboard', 'tank'];
-randomTransportation = chooseRandom('2');
+let randomTransportation = chooseRandom('2');
 
 //Randomly select a form of entertainment
 let entertainment = ['art gallery', 'movies', 'museum'];
-randomEntertainment = chooseRandom('3');
+let randomEntertainment = chooseRandom('3');
 
 function chooseRandom(dayTripChoice){
     switch (dayTripChoice){
         case '0':
-            randomDestination = destinations[Math.floor(Math.random()*destinations.length)];
+            let randomDestination = destinations[Math.floor(Math.random()*destinations.length)];
             console.log(randomDestination)
             return randomDestination;
         case '1':
-            randomRestaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
+            let randomRestaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
             console.log(randomRestaurant);
             return randomRestaurant;
         case '2':
-            randomTransportation = transportation[Math.floor(Math.random()*transportation.length)];
+            let randomTransportation = transportation[Math.floor(Math.random()*transportation.length)];
             console.log(randomTransportation);
             return randomTransportation;
         case '3':
-            randomEntertainment = entertainment[Math.floor(Math.random()*entertainment.length)];
+            let randomEntertainment = entertainment[Math.floor(Math.random()*entertainment.length)];
             console.log(randomEntertainment);
             return randomEntertainment;
     }
@@ -107,7 +108,7 @@ while (completed == false){
 function rerollChoice(userChoiceToReroll, oldValue){
     switch (userChoiceToReroll){
         case '0':
-            randomDestinationTwo = chooseRandom('0');
+            let randomDestinationTwo = chooseRandom('0');
             while (oldValue == randomDestinationTwo){
                 randomDestinationTwo = chooseRandom('0');
             }
@@ -115,7 +116,7 @@ function rerollChoice(userChoiceToReroll, oldValue){
             console.log(codePassArray);
             return codePassArray;
         case '1':
-            randomRestaurantTwo = chooseRandom('1');
+            let randomRestaurantTwo = chooseRandom('1');
             while (oldValue == randomRestaurantTwo){
                 randomRestaurantTwo = chooseRandom('1');
             }
@@ -123,7 +124,7 @@ function rerollChoice(userChoiceToReroll, oldValue){
             console.log(codePassArray);
             return codePassArray;
         case '2':
-            randomTransportationTwo = chooseRandom('2');
+            let randomTransportationTwo = chooseRandom('2');
             while (oldValue == randomTransportationTwo){
                 randomTransportationTwo = chooseRandom('2');
             }
@@ -131,7 +132,7 @@ function rerollChoice(userChoiceToReroll, oldValue){
             console.log(codePassArray);
             return codePassArray;
         case '3':
-            randomEntertainmentTwo = chooseRandom('3');
+            let randomEntertainmentTwo = chooseRandom('3');
             while (oldValue == randomEntertainmentTwo){
                 randomEntertainmentTwo = chooseRandom('3');
             }
